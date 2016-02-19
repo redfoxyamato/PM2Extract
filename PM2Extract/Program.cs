@@ -48,9 +48,9 @@ namespace PM2Extract
             {
                 string path = MakeDirStr(dest) + entry.Name;
                 File.WriteAllBytes(path, entry.Buffer);
-                write("output:" + path);
                 counter++;
             }
+            write(string.Format("Extraction has done! file count:{0}",counter));
             waitKeyInput();
         }
         static void write(string str)
