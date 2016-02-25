@@ -42,6 +42,14 @@ namespace PM2Extract
             if(isThereOption(options,"o",false))
             {
                 dest = getOptionalString(options, "o");
+                if(!Directory.Exists(dest))
+                {
+                    Directory.CreateDirectory(dest);
+                }
+            }
+            if(isThereOption(options,"f",false))
+            {
+                filter = getOptionalString(options, "f");
             }
             int counter = 0;
             foreach(LB4Entry entry in info.GetMatchedEntries(filter))
